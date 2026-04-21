@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Kiro</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #2a2a3e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+    #game-wrapper { position: relative; }
+    canvas { display: block; }
+    #overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 10, 30, 0.72);
+    }
+    #overlay h1 {
+      color: #fff;
+      font-size: 2.4rem;
+      letter-spacing: 4px;
+      text-shadow: 0 0 12px #7b5ea7;
+      margin-bottom: 8px;
+    }
+    #overlay p {
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    #overlay .best { color: #c9a0ff; margin-bottom: 24px; }
+    #start-btn {
+      background: #4a7c3f;
+      color: #fff;
+      border: 3px solid #2d5a27;
+      padding: 12px 40px;
+      font-size: 1.1rem;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #2d5a27;
+      transition: background 0.15s;
+    }
+    #start-btn:hover { background: #5a9c4f; }
+    #start-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #2d5a27; }
+  </style>
+</head>
+<body>
+  <div id="game-wrapper">
+    <canvas id="canvas"></canvas>
+    <div id="overlay">
+      <h1>👻 FLAPPY KIRO</h1>
+      <p id="overlay-msg">Press Space or tap to flap!</p>
+      <p class="best" id="best-score"></p>
+      <button id="start-btn">START</button>
+    </div>
+  </div>
+  <audio id="snd-jump" src="assets/jump.wav" preload="auto"></audio>
+  <audio id="snd-gameover" src="assets/game_over.wav" preload="auto"></audio>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
